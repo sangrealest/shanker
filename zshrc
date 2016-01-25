@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 plugins=(git autojump history history-substring-search systemadmin systemd )
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 source $ZSH/oh-my-zsh.sh
-[[ -s /home/ubuntu/.autojump/etc/profile.d/autojump.sh ]] && source /home/ubuntu/.autojump/etc/profile.d/autojump.sh
+[[ -s /root/.autojump/etc/profile.d/autojump.sh ]] && source /root/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 
 #color{{{
@@ -75,7 +75,7 @@ ${git_info} \
 if [[ "$USER" == "root" ]]; then
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
-%{$bg[yellow]%}%{$fg[cyan]%}%n%{$reset_color%} \
+%{$bg[red]%}%{$fg[black]%}%n%{$reset_color%} \
 %{$fg[white]%}at \
 %{$fg[green]%}$(box_name) \
 %{$fg[white]%}in \
