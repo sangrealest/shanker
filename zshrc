@@ -1,9 +1,9 @@
 export ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="ys"
-plugins=(git autojump history history-substring-search systemadmin systemd )
+plugins=(git autojump history-substring-search systemadmin systemd )
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 source $ZSH/oh-my-zsh.sh
-[[ -s /root/.autojump/etc/profile.d/autojump.sh ]] && source /root/.autojump/etc/profile.d/autojump.sh
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 
 #color{{{
@@ -423,7 +423,7 @@ setopt extended_glob
      done
  }
 check-cmd-self-insert() { zle .self-insert && recolor-cmd }
- check-cmd-backward-delete-char() { zle .backward-delete-char && recolor-cmd }
+check-cmd-backward-delete-char() { zle .backward-delete-char && recolor-cmd }
  
  zle -N self-insert check-cmd-self-insert
  zle -N backward-delete-char check-cmd-backward-delete-char
