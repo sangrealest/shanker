@@ -334,7 +334,7 @@ alias sls='screen -ls'
 alias sdr='screen -dr'
 alias mm='getstock sh000001 sz399001 sz399006 sz002407 sz000988 sh600303 '
 
-alias egrepv="egrep -v ^$|^#"'
+alias egrepv='egrep -v "^$|^#"'
 #[Esc][h] man 当前命令时，显示简短说明
 alias run-help >&/dev/null && unalias run-help
 autoload run-help
