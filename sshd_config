@@ -1,0 +1,28 @@
+Protocol 2
+Port 7788
+SyslogFacility AUTHPRIV
+LoginGraceTime 1m
+PermitRootLogin no
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile      .ssh/authorized_keys
+RhostsRSAAuthentication no
+IgnoreUserKnownHosts yes
+IgnoreRhosts yes
+PermitEmptyPasswords no
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+GSSAPIAuthentication no
+GSSAPICleanupCredentials yes
+UsePAM yes
+AllowTcpForwarding yes
+X11Forwarding yes
+TCPKeepAlive yes
+Compression yes
+UseDNS no
+#for centos this is /usr/libexec/openssh/sftp-server
+#for ubuntu, it should be like below
+Subsystem       sftp    /usr/lib/openssh/sftp-server
+HostbasedAuthentication no
+MaxStartups 64
+
