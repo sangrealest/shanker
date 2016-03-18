@@ -143,6 +143,9 @@ if  [ ! -d "$HISTDIR" ] ; then          # create folder if needed
 mkdir -p "$HISTDIR"
 fi
 
+if [ -f ".vimrc" ] ; then
+source .vimrc
+fi
 export HISTFILE="$HISTDIR/zhistory"     # set new history file
 touch $HISTFILE
 local ohistsize=$HISTSIZE
