@@ -337,7 +337,7 @@ alias ain='sudo apt-get install -y'
 alias ase='sudo apt-cache search'
 alias sls='screen -ls'
 alias sdr='screen -dr'
-alias mm='getstock sh000001 sz399001 sz399006 sz002407 sz150274 sz150153 sz150193 sz150344 sz150316 sz150172 sz150206 sz150218 sz150212 sz150204 sz150182 sz002466'
+alias mm='getstock sh000001 sz399001 sz399006 sz150195 sz150244 sz150218 sz150201 sz150212 sz150332 sz150199 sz150316'
 
 alias egrepv='egrep -v "^$|^#"'
 #[Esc][h] man 当前命令时，显示简短说明
