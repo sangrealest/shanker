@@ -1,7 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="ys"
 plugins=(git autojump history-substring-search systemadmin systemd )
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/sbin:$PATH
 source $ZSH/oh-my-zsh.sh
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
