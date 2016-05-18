@@ -2,7 +2,7 @@
 - hosts: all
   gather_facts: yes
   vars:
-        zabbixname: "{{ansible_hostname}}"
+        zabbixname: "{{ ansible_hostname }}"
   remote_user: ibmcloud
   sudo: yes
   tasks:
