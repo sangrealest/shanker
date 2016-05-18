@@ -3,5 +3,5 @@ This is my personal git warehouse.
 
 
 
-some useful shell scripts and other tools.
+some useful configuration files and other tools.
 
