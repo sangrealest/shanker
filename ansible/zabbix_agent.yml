@@ -1,0 +1,22 @@
+---
+- hosts: all
+  gather_facts: yes
+  vars:
+        zabbixname: "{{ansible_hostname}}"
+  remote_user: ibmcloud
+  sudo: yes
+  tasks:
+  - name: install zabbix-agent
+    yum: name=zabbix-agent state=present
+    when: ansible_os_family == "RedHat"
+  - name: install zabbix-agent on Ubuntu
+    apt: name=zabbix-agent state=present
+    when: ansible_os_family == "Debian"
+  - name: copy the agent conf file to remote server
+    template: src=/etc/ansible/zabbix_agentd.j2 dest=/etc/zabbix/zabbix_agentd.conf owner=zabbix group=zabbix mode=0644
+    notify: 
+    - restart zabbix-agent
+  handlers:
+  - name: restart zabbix-agent
+    service: name=zabbix-agent state=restarted
+    
