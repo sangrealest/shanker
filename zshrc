@@ -327,6 +327,7 @@ alias gco='git commit -m $1'
 alias gpu='git push'
 alias gst='git status'
 alias gpl='git pull'
+alias gacp="git add -A && git commit -m 'update' && git push"
 alias pce='puppet cert'
 alias mpstat='mpstat -P All'
 alias pmem='ps -eo "%C:%p:%z:%a"|sort -k3 -nr|head'
