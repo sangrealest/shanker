@@ -1,0 +1,6 @@
+FROM nginx
+MAINTAINER Shanker shanker@yeah.net
+
+EXPOSE 80
+
+ADD app/ /usr/share/nginx/html
