@@ -1,6 +1,5 @@
 {
-  "id": "/marathon-docker-2048game",
-  "cmd": "/bin/bash",
+  "id": "/nginx",
   "cpus": 1,
   "mem": 128,
   "disk": 0,
@@ -9,19 +8,20 @@
     "type": "DOCKER",
     "volumes": [
       {
-        "containerPath": "/var/www/html/",
+        "containerPath": "/usr/share/nginx/html/",
         "hostPath": "/home/ibmcloud/2048-master/",
         "mode": "RO"
       }
     ],
     "docker": {
-      "image": "shanker/nginx",
+      "image": "nginx",
       "network": "BRIDGE",
       "portMappings": [
         {
           "containerPort": 80,
           "hostPort": 0,
           "protocol": "tcp",
+          "servicePort": 80,
           "labels": {}
         }
       ],
