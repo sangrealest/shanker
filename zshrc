@@ -312,6 +312,11 @@ bindkey "\e\e" sudo-command-line
 #}}}
  
 #命令别名 {{{
+#For Docker
+alias dockerip="docker inspect --format '{{ .NetworkSettings.IPAddress}}'"
+alias dockerrminotag='docker rmi $(sudo docker images -q --filter "dangling=true")'
+alias dockerrmexit="docker rm $(docker ps -a | grep Exited | awk '{print $1}')"
+
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
