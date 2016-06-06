@@ -1,5 +1,5 @@
 Protocol 2
-Port 7788
+Port 3322 
 SyslogFacility AUTHPRIV
 LoginGraceTime 1m
 PermitRootLogin no
@@ -19,6 +19,8 @@ AllowTcpForwarding yes
 X11Forwarding yes
 TCPKeepAlive yes
 Compression yes
+ClientAliveInterval 60
+ClientAliveCountMax 2
 UseDNS no
 #for centos this is /usr/libexec/openssh/sftp-server
 #for ubuntu, it should be like below
