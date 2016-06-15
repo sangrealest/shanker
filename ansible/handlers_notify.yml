@@ -1,0 +1,19 @@
+---
+- hosts: target_servers
+  become: yes
+  become_method: sudo
+
+  handlers:
+  - name: restart sshd
+    service: name=sshd state=restarted
+  tasks:
+  - name: edit sshd_config
+    lineinfile: >
+      dest=/etc/ssh/sshd_config
+      regexp="{{ item.regexp }}"
+      line="{{ item.line }}"
+    with_items:
+    - { regexp: '^#PermitRootLogin', line: 'PermitRootLogin no' }
+
+    notify: restart sshd
+    tags: Edit_sshd_config
