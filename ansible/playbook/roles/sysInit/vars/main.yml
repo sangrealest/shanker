@@ -1,0 +1,10 @@
+setuptools:
+- git
+- zsh
+- dstat
+
+py_pip:
+- pip
+
+packages:
+ - httpd
