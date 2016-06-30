@@ -6,4 +6,4 @@
     shell: hostname
     register: info
   - name: display the register info
-    debug: msg="the variable is {{ info }}"
+    debug: msg="the variable is {{ info['stdout'] }}"
