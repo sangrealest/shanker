@@ -1,0 +1,37 @@
+[defaults]
+hostfile       = /etc/ansible/hosts
+library        = /usr/share/ansible
+hostfile       = /etc/ansible/hosts
+library        = /usr/share/ansible
+remote_tmp     = $HOME/.ansible/tmp
+pattern        = *
+forks          = 5
+poll_interval  = 15
+sudo_user      = root
+transport      = smart
+remote_port    = 22
+sudo_exe = sudo
+timeout = 7
+remote_user = ibmcloud
+host_key_checking = False
+log_path = /var/log/ansible.log
+private_key_file = /home/ubuntu/.ssh/shanker.pri
+ansible_managed = Ansible managed: {file} modified on %Y-%m-%d %H:%M:%S by {uid} on {host}
+action_plugins     = /usr/share/ansible_plugins/action_plugins
+callback_plugins   = /usr/share/ansible_plugins/callback_plugins
+connection_plugins = /usr/share/ansible_plugins/connection_plugins
+lookup_plugins     = /usr/share/ansible_plugins/lookup_plugins
+vars_plugins       = /usr/share/ansible_plugins/vars_plugins
+filter_plugins     = /usr/share/ansible_plugins/filter_plugins
+[paramiko_connection]
+[ssh_connection]
+#pipelining can signifitant enhance the process efficient of ansible, need uncomment defaults in target machines /etc/visudo
+pipelining = True
+scp_if_ssh = True
+[accelerate]
+accelerate_port = 5099
+accelerate_timeout = 30
+accelerate_connect_timeout = 5.0
+gathering = smart
+fact_caching_timeout = 86400
+fact_caching = redis
