@@ -1,0 +1,26 @@
+Host    bastion
+    Hostname 1.1.1.1
+    ForwardAgent yes
+    User    Fucking
+    Port    2289
+    IdentityFile    ~/.ssh/fucking
+Host nasa
+   Hostname 9.2.2.6
+   ProxyCommand =ssh -q bastion nc %h %p
+
+
+Host *
+    ForwardAgent yes
+    ForwardX11 yes
+    User shanker
+    Port 22
+    IdentityFile ~/.ssh/fuckingtheworld
+    ServerAliveInterval 300
+    ServerAliveCountMax 5
+    ConnectTimeout 0
+    GSSAPIAuthentication no
+    KeepAlive yes
+    TCPKeepAlive yes
+     ControlMaster     auto
+     ControlPath     ~/.ssh/%r@%h:%p
+     ControlPersist     10m
