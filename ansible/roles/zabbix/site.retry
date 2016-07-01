@@ -1,8 +1,3 @@
-arbiter
-bastion
-dbmaster
-dbslave
-dbslave2
-dbslave3
-ukcent1
-ukcent2
+192.168.1.100
+192.168.1.101
+192.168.1.111
