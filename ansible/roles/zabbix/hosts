@@ -1,0 +1,6 @@
+[zabbix-server]
+192.168.1.100   hostname=server.shanker
+[zabbix-proxy]
+192.168.1.101  hostname=proxy.shanker
+[zabbix-agent]
+192.168.1.111  hostname=agent.shanker

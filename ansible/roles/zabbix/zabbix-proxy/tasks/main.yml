@@ -1,0 +1,33 @@
+---
+- name: install mysql-server and zabbix-server
+  yum: name={{ item }} state=latest
+  with_items:
+    - mysql-server
+    - zabbix-proxy
+    - zabbix-proxy-mysql
+- name: init mysql
+  shell: mysql_install_db
+
+- name: start mysql-server
+  service: name=mysqld state=started enabled=yes
+- name: set mysql admin password
+  shell: /usr/bin/mysqladmin -u root password 'fuck'
+
+- name: create zabbix master database
+  shell: mysql -u root -pfuck -e 'create database zabbix_proxy character set utf8 collate utf8_bin;'
+- name: set zabbix master database grant
+  shell: mysql -u root -pfuck -e 'grant all privileges on zabbix_proxy .* to zabbix@localhost identified by "proxy";'
+
+
+- name: import zabbix insital data
+  shell: mysql -u zabbix -pproxy zabbix_proxy < schema.sql chdir=/usr/share/doc/zabbix-server-mysql-2.4.6/create
+- name: copy zabbix_proxy.conf file
+  template: src=zabbix_proxy.conf dest=/etc/zabbix/zabbix_proxy.conf owner=root group=root mode=0644
+
+- name: start zabbix-server and httpd
+  service: name={{ item }} state=started enabled=yes
+  with_items:
+    - zabbix-proxy
+    - httpd
+
+

@@ -1,0 +1,40 @@
+---
+- name: install mysql-server and zabbix-server
+  yum: name={{ item }} state=latest
+  with_items:
+    - mysql-server
+    - zabbix-server
+    - zabbix-server-mysql
+    - zabbix-web-mysql
+- name: init mysql
+  shell: mysql_install_db
+- name: start mysql-server
+  service: name=mysqld state=started enabled=yes
+
+- name: set mysql admin password
+  shell: /usr/bin/mysqladmin -u root password 'yourpasswordhere'
+
+- name: create zabbix master database
+  shell: mysql -u root -pyourpwd -e 'create database zabbix_master character set utf8 collate utf8_bin;'
+
+- name: set zabbix master database grant
+  shell: mysql -u root -pyourpwd -e 'grant all privileges on zabbix_master.* to zabbix@localhost identified by "master";'
+
+- name: import zabbix insital data
+  shell: mysql -u zabbix -pmaster zabbix_master < schema.sql chdir=/usr/share/doc/zabbix-server-mysql-2.4.6/create
+
+- name: import images.sql
+  shell: mysql -u zabbix -pmaster zabbix_master < images.sql chdir=/usr/share/doc/zabbix-server-mysql-2.4.6/create 
+
+- name: import data.sql
+  shell: mysql -u zabbix -pmaster zabbix_master < data.sql chdir=/usr/share/doc/zabbix-server-mysql-2.4.6/create 
+- name: change php timezone
+  shell: sed -e -i 's@;date.timezone =.*@date.timezone = Asia/Shanghai@g' /etc/php.ini
+- name: copy /etc/zabbix/zabbix_server.conf file
+  template: src=zabbix_server.conf dest=/etc/zabbix/zabbix_server.conf owner=root group=root mode=0644
+- name: start zabbix-server and httpd
+  service: name={{ item }} state=started enabled=yes
+  with_items:
+    - zabbix-server
+    - httpd
+
