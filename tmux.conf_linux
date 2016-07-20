@@ -9,11 +9,6 @@ set-option -g status-utf8 on        #开启状态栏的UTF-8支持
 set-window-option -g mode-keys vi    #复制模式中的默认键盘布局；可以设置为vi或emacs
 set-window-option -g utf8 on        #开启窗口的UTF-8支持
 
-#选择分割的窗格,不需要松开ctrl键，多次跳转更方便
-bind C-k selectp -U            # 选择上窗格
-bind C-j selectp -D            # 选择下窗格
-bind C-h selectp -L            # 选择左窗格
-bind C-l selectp -R            # 选择右窗格
 
 #执行命令，比如 Manpage
 bind m command-prompt "splitw -h 'exec man %%'"
