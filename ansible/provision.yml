@@ -15,6 +15,7 @@
      - dstat
      - htop
      - screen
+     - tmux
   - name: install provisioning tools, git and zsh dstat via apt-get
     apt: name={{ item }} state=installed
     when: ansible_os_family == "Debian"
