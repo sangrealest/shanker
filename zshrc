@@ -317,6 +317,7 @@ bindkey "\e\e" sudo-command-line
 #}}}
  
 #命令别名 {{{
+alias apl='ansible-playbook'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
