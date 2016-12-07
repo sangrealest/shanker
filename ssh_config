@@ -8,6 +8,13 @@ Host nasa
    Hostname 9.2.2.6
    ProxyCommand =ssh -q bastion nc %h %p
 
+Host github.com
+    Hostname    github.com
+    IdentityFile ~/.ssh/shank
+
+Host *.opentlc.com
+    User    chun
+    DynamicForward  localhost:1080 
 
 Host *
     ForwardAgent yes
@@ -19,8 +26,9 @@ Host *
     ServerAliveCountMax 5
     ConnectTimeout 0
     GSSAPIAuthentication no
-    KeepAlive yes
     TCPKeepAlive yes
-     ControlMaster     auto
-     ControlPath     ~/.ssh/%r@%h:%p
-     ControlPersist     10m
+    TCPKeepAlive yes
+    ControlMaster     auto
+    ControlPath     ~/.ssh/%r@%h:%p
+    ControlPersist     2d
+    StrictHostKeyChecking no
