@@ -1,4 +1,5 @@
 shopt -s histappend
+export HISTCONTROL=ignoreboth
 PROMPT_COMMAND='history -a'
 
 alias grep='grep --color=auto -i'
@@ -23,7 +24,6 @@ alias sls='screen -ls'
 alias sdr='screen -dr'
 
 export PATH=$PATH:/sbin:.
-export HISTCONTROL=ignoreboth
 
 export PS1="\[\e[00;32m\][\[\e[0m\]\[\e[00;31m\]\u\[\e[0m\]\[\e[00;32m\]@\[\e[0m\]\[\e[00;33m\]\H:\[\e[0m\]\[\e[00;35m\]\w\[\e[0m\]\[\e[00;32m\]\A]\[\e[0m\]\[\e[00;36m\]\\$\[\e[0m\]"
 
