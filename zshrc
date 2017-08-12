@@ -317,7 +317,6 @@ bindkey "\e\e" sudo-command-line
 #}}}
  
 #命令别名 {{{
-alias sshkeygen="ssh-keygen -t rsa -f .ssh/id_rsa -P ''"
 alias ap='ansible-playbook'
 alias cp='cp -i'
 alias mv='mv -i'
