@@ -321,6 +321,7 @@ alias ap='ansible-playbook'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
+alias df='df -Th'
 
 alias grep='grep --color=auto -i'
 alias vi='vim'
