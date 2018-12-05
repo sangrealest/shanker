@@ -2,9 +2,13 @@ DISABLE_AUTO_UPDATE=true
 
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="pygmalion"
-plugins=(docker git autojump history-substring-search systemadmin systemd zsh-autosuggestions)
+plugins=(docker git autojump history-substring-search systemadmin systemd zsh-autosuggestions kubectl)
 export PATH=$HOME/bin:/usr/local/bin:/sbin:$PATH
 export TERM="xterm-256color"
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 #export JAVA_HOME=/usr/java/jdk1.8.0_73
 #export PATH=$JAVA_HOME/bin:$PATH
 #export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tool.jar
@@ -111,9 +115,9 @@ esac
 #编辑器
 export EDITOR=vim
 #输入法
-export XMODIFIERS="@im=ibus"
-export QT_IM_MODULE=ibus
-export GTK_IM_MODULE=ibus
+export XMODIFIERS="@im=fcitx"
+export QT_IM_MODULE=fcitx
+export GTK_IM_MODULE=fcitx
 #关于历史纪录的配置 {{{
 #历史纪录条目数量
 export HISTSIZE=10000
