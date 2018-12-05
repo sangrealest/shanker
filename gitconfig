@@ -58,6 +58,7 @@
     cd = commit --amend
     cad = commit -a --amend
     ced = commit --allow-empty --amend
+    st = status
     ps = push
     psf = push -f
     psu = push -u
